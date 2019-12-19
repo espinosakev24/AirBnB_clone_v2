@@ -2,6 +2,7 @@
 """This is the place class"""
 from models.base_model import BaseModel
 from sqlalchemy import Column, String, Float, ForeignKey, Integer
+from models.review import Review
 from sqlalchemy.orm import relationship
 from models.city import City
 import models
