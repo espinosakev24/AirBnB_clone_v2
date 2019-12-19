@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 """This is the place class"""
-from models.base_model import BaseModel
-from sqlalchemy import Column, String, Table, ForeignKey, Integer, Float
 from models.review import Review
 from models.amenity import Amenity
+from models.base_model import BaseModel
+from sqlalchemy import Column, String, Table, ForeignKey, Integer, Float
 from sqlalchemy.orm import relationship
 from models.base_model import Base
 import os
