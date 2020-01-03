@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Creating files and setting up the nginx file 
 apt-get install nginx
 mkdir -p /data/web_static/releases/test && touch /data/web_static/releases/test/index.html
 mkdir -p /data/web_static/shared
