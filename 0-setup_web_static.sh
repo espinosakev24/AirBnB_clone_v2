@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Creating files and setting up the nginx file 
-apt-get install nginx
+apt-get update -y
+apt-get install nginx -y
 mkdir -p /data/web_static/releases/test && touch /data/web_static/releases/test/index.html
 mkdir -p /data/web_static/shared
 echo "holbertonschool" > /data/web_static/releases/test/index.html
