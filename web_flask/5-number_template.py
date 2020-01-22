@@ -2,7 +2,7 @@
 """ Script that starts a flask app
 """
 from flask import Flask, render_template
-app = Flask('__name__', template_folder='templates')
+app = Flask(__name__, template_folder='templates')
 
 
 @app.route('/', strict_slashes=False)
@@ -43,7 +43,7 @@ def IsNumber(n):
 
 @app.route('/number_template/<int:n>')
 def Template_5(n):
-    """ Function for /number_template/int:var
+    """ Function for /number_template/int:var route
     """
     return render_template('5-number.html', n=n)
 
