@@ -27,21 +27,29 @@ def PrintText(text):
 @app.route('/python/<text>', strict_slashes=False)
 @app.route('/python', strict_slashes=False)
 def PrintText_2(text="is_cool"):
+    """ function for /c/text route
+    """
     return "Python {}".format(text.replace('_', ' '))
 
 
 @app.route('/number/<int:n>', strict_slashes=False)
 def IsNumber(n):
+    """ Function for /number/<intvar>
+    """
     return "{} is a number".format(n)
 
 
 @app.route('/number_template/<int:n>', strict_slashes=False)
 def Template_5(n):
+    """ Function for /number_template/int:var route
+    """
     return render_template('5-number.html', n=n)
 
 
 @app.route('/number_odd_or_even/<int:n>', strict_slashes=False)
 def OddOrEven(n):
+    """ Function for /number_odd_or_even/int<var> route
+    """
     if n % 2 == 0:
         string = "is even"
     else:
