@@ -20,12 +20,26 @@ class FileStorage:
     __file_path = "file.json"
     __objects = {}
 
+    def close(self):
+        """Method that calls reload for
+           deserializing the JSON file to objects
+        """
+        self.reload()
+
     def all(self, cls=None):
         """returns a dictionary
         Return:
             returns a dictionary of __object
         """
-        return self.__objects
+        if cls:
+            cls_classes = {}
+            for key, value in self.__objects.items():
+                if type(value) is cls:
+                    cls_classes[key] = value
+            return cls_classes
+        else:
+            return self.__objects
+        
 
     def new(self, obj):
         """sets __object to given obj

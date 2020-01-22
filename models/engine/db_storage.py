@@ -22,6 +22,12 @@ class DB_Storage:
     __engine = None
     __session = None
 
+    def close(self):
+        """ call the remove method on the private
+            session attribute
+        """
+        self.__session.close()
+
     def __init__(self):
         USER = os.environ.get('HBNB_MYSQL_USER')
         PASSWD = os.environ.get('HBNB_MYSQL_PWD')
@@ -39,8 +45,13 @@ class DB_Storage:
         """
         dic = {}
         if cls:
-            for ins in self.__session.query(cls).all():
-                dic[ins.__class__.__name__ + '.' + ins.id] = ins
+            if isinstance(cls, str):
+                for ins in self.__session.query(eval(cls)).all():
+                    dic[ins.__class__.__name__ + '.' + ins.id] = ins
+            else:
+                for ins in self.__session.query(cls).all():
+                    dic[ins.__class__.__name__ + '.' + ins.id] = ins
+
         else:
             holder_list = [State, City, User, Review, Place]
             for classes in holder_list:
