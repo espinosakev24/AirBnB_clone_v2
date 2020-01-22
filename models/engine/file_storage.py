@@ -39,7 +39,6 @@ class FileStorage:
             return cls_classes
         else:
             return self.__objects
-        
 
     def new(self, obj):
         """sets __object to given obj
